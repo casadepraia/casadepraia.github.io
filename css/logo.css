@@ -1,0 +1,81 @@
+/* Criar um logo simples usando CSS */
+.logo-container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: #3498db;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background-color: #1a5276;
+  border-radius: 50% 50% 0 0;
+}
+
+.logo-sun {
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  width: 30%;
+  height: 30%;
+  background-color: #f39c12;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(243, 156, 18, 0.7);
+}
+
+.logo-palm {
+  position: absolute;
+  bottom: 40%;
+  left: 25%;
+  width: 10%;
+  height: 40%;
+  background-color: #27ae60;
+  transform: rotate(-15deg);
+}
+
+.logo-palm::before,
+.logo-palm::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  width: 15px;
+  height: 15px;
+  background-color: #27ae60;
+  border-radius: 50% 50% 0 50%;
+}
+
+.logo-palm::before {
+  left: -10px;
+  transform: rotate(-30deg);
+}
+
+.logo-palm::after {
+  right: -10px;
+  transform: rotate(30deg);
+}
+
+.logo-house {
+  position: absolute;
+  bottom: 15%;
+  left: 60%;
+  width: 25%;
+  height: 20%;
+  background-color: #ecf0f1;
+}
+
+.logo-roof {
+  position: absolute;
+  bottom: 35%;
+  left: 55%;
+  width: 35%;
+  height: 15%;
+  background-color: #e74c3c;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}

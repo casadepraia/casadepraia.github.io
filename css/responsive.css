@@ -1,0 +1,260 @@
+/* Estilos adicionais para garantir responsividade em todos os dispositivos */
+
+/* Ajustes para tablets e dispositivos menores */
+@media (max-width: 992px) {
+  .hero h2 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+  
+  .about-content, 
+  .location-content, 
+  .contact-content {
+    flex-direction: column;
+  }
+  
+  .about-image {
+    margin-top: 30px;
+    order: -1;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .feature-card {
+    padding: 20px;
+  }
+}
+
+/* Ajustes para smartphones */
+@media (max-width: 576px) {
+  .hero {
+    height: 80vh;
+  }
+  
+  .hero h2 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  section {
+    padding: 50px 0;
+  }
+  
+  section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .gallery-item {
+    height: 200px;
+  }
+  
+  .feature-card {
+    padding: 15px;
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .footer-column {
+    width: 100%;
+  }
+}
+
+/* Ajustes para dispositivos muito pequenos */
+@media (max-width: 375px) {
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+  
+  .hero p {
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+  
+  .logo h1 {
+    font-size: 1.2rem;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  .gallery-item {
+    height: 180px;
+  }
+}
+
+/* Ajustes para orientação paisagem em dispositivos móveis */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 100px 0;
+  }
+  
+  .hero-content {
+    padding: 20px;
+  }
+  
+  .hero h2 {
+    font-size: 2rem;
+  }
+  
+  header {
+    padding: 10px 0;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Melhorias de acessibilidade */
+:focus {
+  outline: 3px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+.btn:focus, 
+nav ul li a:focus {
+  outline-color: var(--text-light);
+}
+
+/* Melhorias de desempenho para animações */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Ajustes para telas grandes */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+  
+  .hero h2 {
+    font-size: 4rem;
+  }
+  
+  .hero p {
+    font-size: 1.8rem;
+  }
+  
+  section h2 {
+    font-size: 3rem;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+  
+  .gallery-item {
+    height: 300px;
+  }
+}
+
+/* Ajustes para impressão */
+@media print {
+  header, 
+  .hero, 
+  .contact-form, 
+  footer, 
+  .btn, 
+  .menu-toggle {
+    display: none;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  section {
+    padding: 20px 0;
+    page-break-inside: avoid;
+  }
+  
+  .about-content, 
+  .location-content, 
+  .contact-content {
+    display: block;
+  }
+  
+  .about-image, 
+  .location-map {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+  }
+  
+  .gallery-grid {
+    display: block;
+  }
+  
+  .gallery-item {
+    width: 48%;
+    display: inline-block;
+    margin: 1%;
+    page-break-inside: avoid;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+}
