@@ -219,6 +219,44 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     `;
+    document.getElementById("reservationForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const nome = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const telefone = document.getElementById("phone").value;
+    const periodo = document.getElementById("dates").value;
+    const hospedes = document.getElementById("guests").value;
+    const mensagem = document.getElementById("message").value;
+
+    const texto =
+`🏖️ *Nova Solicitação de Reserva*
+
+👤 Nome: ${nome}
+
+📧 Email: ${email}
+
+📱 Telefone: ${telefone}
+
+📅 Período: ${periodo}
+
+👨‍👩‍👧 Hóspedes: ${hospedes}
+
+💬 Mensagem:
+${mensagem}`;
+
+    const numero = "5598988379460";
+
+    const url =
+        "https://wa.me/" +
+        numero +
+        "?text=" +
+        encodeURIComponent(texto);
+
+    window.open(url, "_blank");
+
+});
     
     document.head.appendChild(style);
 });
