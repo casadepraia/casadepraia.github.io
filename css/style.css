@@ -647,7 +647,35 @@ footer {
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
+    margin-left: 12px !important;
+    flex-shrink: 0;
   }
+
+  .header-container {
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .logo {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+  
+  nav {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-blue);
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-150%);
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+
+
+  
   
   nav {
     position: fixed;
@@ -697,9 +725,28 @@ footer {
 }
 
 @media (max-width: 576px) {
-  .logo h1 {
-    font-size: 1.5rem;
+  .logo img {
+    height: 75px !important;
+    width: auto;
   }
+
+  .logo h1 {
+    font-size: 1.25rem;
+    white-space: nowrap;
+  }
+
+  .header-container {
+    gap: 8px;
+  }
+
+  .menu-toggle {
+    margin-left: 8px !important;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
   
   .hero h2 {
     font-size: 2rem;
