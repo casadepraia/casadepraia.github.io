@@ -85,18 +85,49 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', animateOnScroll);
     animateOnScroll(); // Verificar elementos visíveis ao carregar
     
-    // Validação e envio do formulário de reserva
-    if (reservationForm) {
-        reservationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Aqui você adicionaria a lógica para enviar o formulário
-            // Por enquanto, apenas mostraremos uma mensagem de sucesso
-            
-            alert('Sua solicitação de reserva foi enviada com sucesso! Entraremos em contato em breve.');
-            reservationForm.reset();
-        });
-    }
+    // Envio do formulário diretamente para o WhatsApp
+if (reservationForm) {
+    reservationForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Verifica os campos obrigatórios do formulário
+        if (!reservationForm.checkValidity()) {
+            reservationForm.reportValidity();
+            return;
+        }
+
+        const nome = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const telefone = document.getElementById('phone').value.trim();
+        const periodo = document.getElementById('dates').value.trim();
+        const hospedes = document.getElementById('guests').value.trim();
+        const mensagem = document.getElementById('message').value.trim();
+
+        const textoWhatsApp = [
+            '🏖️ *NOVA SOLICITAÇÃO DE RESERVA*',
+            '',
+            'Olá, Fabiano! Gostaria de verificar a disponibilidade da Paraíso Casa de Praia.',
+            '',
+            `👤 *Nome:* ${nome}`,
+            `📱 *Telefone:* ${telefone}`,
+            `📧 *E-mail:* ${email}`,
+            `📅 *Período:* ${periodo}`,
+            `👨‍👩‍👧‍👦 *Número de hóspedes:* ${hospedes}`,
+            `💬 *Mensagem:* ${mensagem || 'Nenhuma observação informada.'}`,
+            '',
+            'Aguardo seu retorno. Obrigado!'
+        ].join('\n');
+
+        const numeroWhatsApp = '5598988379460';
+
+        const urlWhatsApp =
+            `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(textoWhatsApp)}`;
+
+        // Mais confiável no celular do que window.open()
+        window.location.href = urlWhatsApp;
+    });
+}
+  
     
     // Galeria de imagens com lightbox
     const galleryItems = document.querySelectorAll('.gallery-item');
@@ -219,44 +250,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     `;
-    document.getElementById("reservationForm").addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    const nome = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const telefone = document.getElementById("phone").value;
-    const periodo = document.getElementById("dates").value;
-    const hospedes = document.getElementById("guests").value;
-    const mensagem = document.getElementById("message").value;
-
-    const texto =
-`🏖️ *Nova Solicitação de Reserva*
-
-👤 Nome: ${nome}
-
-📧 Email: ${email}
-
-📱 Telefone: ${telefone}
-
-📅 Período: ${periodo}
-
-👨‍👩‍👧 Hóspedes: ${hospedes}
-
-💬 Mensagem:
-${mensagem}`;
-
-    const numero = "5598988379460";
-
-    const url =
-        "https://wa.me/" +
-        numero +
-        "?text=" +
-        encodeURIComponent(texto);
-
-    window.open(url, "_blank");
-
-});
     
-    document.head.appendChild(style);
-});
