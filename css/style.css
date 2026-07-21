@@ -259,6 +259,9 @@ section h2::after {
   min-width: 300px;
 }
 
+.about-text p {
+  text-align: justify;
+}
 .about-image {
   flex: 1;
   min-width: 300px;
